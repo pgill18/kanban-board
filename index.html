@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Board - Software Development Team</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Software Development Kanban Board</h1>
+            <div class="legend">
+                <span class="legend-item"><span class="priority-badge high">High</span> Priority</span>
+                <span class="legend-item"><span class="priority-badge medium">Medium</span> Priority</span>
+                <span class="legend-item"><span class="priority-badge low">Low</span> Priority</span>
+            </div>
+        </header>
+        
+        <div class="board">
+            <div class="column" data-column="backlog">
+                <div class="column-header">
+                    <h2>Backlog</h2>
+                    <span class="task-count">0</span>
+                </div>
+                <div class="tasks" id="backlog"></div>
+            </div>
+
+            <div class="column" data-column="todo">
+                <div class="column-header">
+                    <h2>To Do</h2>
+                    <span class="task-count">0</span>
+                </div>
+                <div class="tasks" id="todo"></div>
+            </div>
+
+            <div class="column" data-column="in-progress">
+                <div class="column-header">
+                    <h2>In Progress</h2>
+                    <span class="task-count">0</span>
+                    <span class="wip-limit">WIP Limit: 3</span>
+                </div>
+                <div class="tasks" id="in-progress"></div>
+            </div>
+
+            <div class="column" data-column="in-review">
+                <div class="column-header">
+                    <h2>In Review</h2>
+                    <span class="task-count">0</span>
+                </div>
+                <div class="tasks" id="in-review"></div>
+            </div>
+
+            <div class="column" data-column="done">
+                <div class="column-header">
+                    <h2>Done</h2>
+                    <span class="task-count">0</span>
+                </div>
+                <div class="tasks" id="done"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
