@@ -4,7 +4,7 @@ const initialTasks = [
         id: 1,
         title: "Set up project repository",
         priority: "high",
-        dueDate: "2024-11-15",
+        dueDate: "2025-11-15",
         column: "backlog"
     },
     {
@@ -50,6 +50,9 @@ function createTaskElement(task) {
     taskDiv.draggable = true;
     taskDiv.dataset.taskId = task.id;
     taskDiv.dataset.priority = task.priority;
+    if (task.dueDate) {
+        taskDiv.dataset.dueDate = task.dueDate; // Store ISO date in data attribute
+    }
     
     const taskHeader = document.createElement('div');
     taskHeader.className = 'task-header';
@@ -142,17 +145,7 @@ function getAllTasks() {
         // Find the task data
         const title = taskElement.querySelector('.task-title').textContent;
         const priority = taskElement.dataset.priority;
-        const dueDateElement = taskElement.querySelector('.task-due');
-        let dueDate = null;
-        
-        if (dueDateElement) {
-            const dateText = dueDateElement.textContent.replace('Due: ', '');
-            // Convert back to ISO format
-            const date = new Date(dateText);
-            if (!isNaN(date.getTime())) {
-                dueDate = date.toISOString().split('T')[0];
-            }
-        }
+        const dueDate = taskElement.dataset.dueDate || null;
         
         tasks.push({
             id: taskId,
